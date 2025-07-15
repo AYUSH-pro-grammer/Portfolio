@@ -7,6 +7,12 @@
     font-weight: 500;
     border: none;
     font-size: 48px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+
+
 }
 .header-navbar{
     display: flex;
@@ -14,8 +20,12 @@
 
 
     align-items: center;
+
+
+    
     flex-wrap: wrap;
     gap: 20px
+
 }
 
 .header-contact-button{
@@ -105,4 +115,43 @@
 
 
 
+}
+.contactWallabth{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+
+}
+@media screen and (max-width: 843px){
+    .contactWallabth{
+    width: 100%
+
+    }
+    .header-heading{
+        width: 100%;
+    }
+    
+}
+.projectAvail{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.mainContGreen{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.greenDotAni{
+    width: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

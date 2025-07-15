@@ -11,6 +11,7 @@ import { useEffect, useRef } from 'react';
 import nav from '../../assets/json/nav.json'
 
 import arrowNav from '../../assets/json/arrowNav.json'
+import Scan from '../../assets/json/Scan.json'
 
 import { useState } from 'react'
 
@@ -31,6 +32,7 @@ const Navbar = ({no}: NavbarProps) => {
       const lottieRef1 = useRef<LottieRefCurrentProps | null>(null);
       const lottieRef2 = useRef<LottieRefCurrentProps | null>(null);
       const lottieRef3 = useRef<LottieRefCurrentProps | null>(null);
+      const userIconRef = useRef<LottieRefCurrentProps | null>(null);
  
 
     const [dots, changeDots] = useState([false, false,false,false,false])
@@ -73,7 +75,27 @@ const Navbar = ({no}: NavbarProps) => {
 <nav className='contofNavCont'>
        <nav className='navbar-cont'>
         <div className='navbar-header'>
-            <div className='navbar-image'></div>
+            <div className='navbar-image' 
+            
+
+
+      onMouseEnter={() => userIconRef.current?.play()}
+      onMouseLeave={() => userIconRef.current?.stop()}
+
+
+            >
+
+
+                 <Lottie
+                            lottieRef={userIconRef}
+                            animationData={Scan}
+                            loop={false}
+
+                            className='animntionNAVlottiAb'
+                        />
+
+
+            </div>
 
             <div className='navbar-header-titles'>
                 <h4 className='navbar-title-one'>Ayush Kumar</h4>
@@ -159,15 +181,17 @@ const Navbar = ({no}: NavbarProps) => {
         <div className='navbar-links'>
 
 
-            <div className='navbar-links-element OneElement' >
-                <h4 className='navbar-icons-title'>Email</h4>
+<a href="mailto:ayushpro@gmail.com" target="_blank" className='a'>
+    
 
-                    <div className='animntionNAVlotti OneANi'>
+                <div className='navbar-links-element OneElement' >
+                <h4 className='navbar-icons-title'>Email</h4>
+                    <div className='animntionNAVlotti OneANi '>
                         <Lottie
                             lottieRef={lottieRef1}
                             animationData={arrowNav}
                             loop={true}
-                            className='animntionNAVlottiA'
+                            className='animntionNAVlottiA '
                         />
                     </div>
                 
@@ -175,6 +199,10 @@ const Navbar = ({no}: NavbarProps) => {
             </div>
 
 
+
+</a>
+
+<a href="https://github.com/AYUSH-pro-grammer" target="_blank" className='a'>
 
 
             <div className='navbar-links-element TwoElement' >
@@ -194,6 +222,13 @@ const Navbar = ({no}: NavbarProps) => {
             </div>  
 
 
+</a>
+
+
+
+<a href="https://linkedin.com/in/ayushpro1428" target="_blank" className='a'>
+
+
   <div className='navbar-links-element ThreeElement'  >
                 <h4 className='navbar-icons-title'>Linkedin</h4>
 
@@ -209,6 +244,11 @@ const Navbar = ({no}: NavbarProps) => {
                 
 
             </div>
+
+
+
+</a>
+
 
 
         

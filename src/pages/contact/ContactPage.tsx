@@ -33,7 +33,11 @@ const ContactPage = () => {
 
                     <div className='socialBoxyBox'>
 
-                        <div className='socialLinks'
+
+                      <a  target="_blank" href="mailto:ayushpro@gmail.com"  className='a socialLinks '
+
+
+                        
                         
       onMouseEnter={() => lottieRef1.current?.play()}
       onMouseLeave={() => lottieRef1.current?.stop()}
@@ -62,10 +66,14 @@ const ContactPage = () => {
 
 
                            
-                        </div>                        
                         
+
+                      </a>
+                    
                         
-                        <div className='socialLinks'
+                        <a target="_blank" href="https://github.com/AYUSH-pro-grammer" className='a socialLinks'
+                      
+                      
                         
                               onMouseEnter={() => lottieRef2.current?.play()}
       onMouseLeave={() => lottieRef2.current?.stop()}
@@ -90,9 +98,12 @@ const ContactPage = () => {
       />
     </div>
 
-                        </div>
+                       
 
-                        <div className='socialLinks'
+                          </a>
+
+
+<a target="_blank" href="https://linkedin.com/in/ayushpro1428/" className='a socialLinks'
                         
       onMouseEnter={() => lottieRef3.current?.play()}
       onMouseLeave={() => lottieRef3.current?.stop()}
@@ -118,7 +129,11 @@ const ContactPage = () => {
     </div>
 
 
-                        </div>                        <div className='socialLinks'
+                       
+
+                        </a>    
+                        
+                                     <div className='socialLinks'
                         
                         
       onMouseEnter={() => lottieRef4.current?.play()}

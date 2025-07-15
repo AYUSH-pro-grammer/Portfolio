@@ -2,12 +2,14 @@ import { Link } from 'react-router-dom'
 import './header.css'
 
 import hello from '../../assets/json/hello.json'
+import greendot from '../../assets/json/greendot.json'
 
 import { useRef } from 'react'
 import Lottie from 'lottie-react'
 const Header = () => {
 
   const newRaf = useRef(null)
+  const greenRef = useRef(null)
   return (
     <div className='header-cont'>
 
@@ -36,7 +38,28 @@ const Header = () => {
         </h1>
 
 
-                            <Link to="/contact" className='NoListStyle'>
+                            
+                            <div className='contactWallabth'>
+
+                              <div className='mainContGreen'>
+
+
+
+      <Lottie
+        lottieRef={greenRef}
+        animationData={greendot}
+        loop={true}
+        className='greenDotAni'
+
+      />
+
+                                <h1 className='projectAvail'>Available for Porjects</h1>
+
+
+                              </div>
+
+
+                              <Link to="/contact" className='NoListStyle'>
 
         <button className='header-contact-button'>Contact Me</button>
 
@@ -44,6 +67,9 @@ const Header = () => {
                     
                                 
                     </Link>
+
+
+                            </div>
 
         
         </div>
