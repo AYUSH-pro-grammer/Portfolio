@@ -1,0 +1,43 @@
+.mainContAbtPage{
+        margin-top: 30px;
+
+
+}
+.titleMainAbtCont{
+        font-weight: 500;
+    border: none;
+    font-size: 48px;
+
+
+
+
+}
+
+.paraAfterCont{
+
+    font-weight: 300;
+    font-size: 16px;
+}
+
+
+@media screen and (max-width: 999px) {
+    
+    .titleMainAbtCont{
+            width: 90vw
+
+    }
+    .paraAfterCont{
+
+    width: 90vw
+
+}
+.mainContAbtPage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+
+}
+
+}

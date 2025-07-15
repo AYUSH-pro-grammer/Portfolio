@@ -1,0 +1,108 @@
+.header-cont{
+    margin-top: 30px;
+    width: 79vw;
+
+}
+.header-heading{
+    font-weight: 500;
+    border: none;
+    font-size: 48px;
+}
+.header-navbar{
+    display: flex;
+    justify-content: space-between;
+
+
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px
+}
+
+.header-contact-button{
+    padding: 10px 30px 10px 30px;
+    background-color: black;
+    color: white;
+    border: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.header-contact-button:hover{
+    cursor: pointer;
+    padding: 10px 40px 10px 30px;
+}
+
+.navbarMobileTitles{
+    font-weight: 400;
+}
+.SideBarNav{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    color: black;
+    padding: 20px;
+}
+.hideSidebar{
+    display: none;
+}
+.sidebarNavCancal{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: black;
+}
+.sidebarLinks{
+    margin-top: 50px;
+    width: 200px
+}
+
+
+
+@media screen and (max-width: 999px) {
+    .header-cont{
+
+    width: 90vw;
+    padding: 20px;
+    margin-top: 0px;
+
+    }
+    
+    .header-heading{
+    font-weight: 400;
+    border: none;
+    font-size: 1.5rem;
+}
+}
+
+
+.lightText{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.helloAnimintion{
+    width: 80px
+}
+.header-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+.totleOfanimintion{
+    font-weight: 400;
+    font-size: 48px;
+
+}
+.helosjkb{
+                display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+}

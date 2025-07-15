@@ -1,0 +1,16 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+  /* font-family: "Work Sans"; */
+  font-family: "Inter";
+  overflow-x: hidden  ;
+
+}
+
+body{
+    display: flex;
+    background-color: #f7f7f7;
+  overflow-x: hidden ;
+
+}

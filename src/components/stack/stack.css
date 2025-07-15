@@ -1,0 +1,155 @@
+.mainStackCont{
+
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+.stackHeading{
+    font-weight: 500;
+
+}
+
+.stackWhiteBox{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    flex-direction: column;
+
+    background-color: white;
+    /* border: 1px solid rgba(0,0,0,0.3); */
+    margin-top: 30px;
+    border-radius: 8px;
+
+    width: calc(78vw);
+
+    padding-top: 40px;
+
+
+}
+.techStackOnlyCont{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 25%;
+
+    transition: all 0.3s ease;
+
+
+
+    
+
+
+}
+.techStackOnlyCont:hover{
+    background-color: #f7f7f7;
+
+
+    border-radius: 8px;
+
+    scale: 1.1;
+
+    cursor: pointer;
+}
+.imageBoxTechStack{
+
+    background-color: #f7f7f7;
+
+    width: 96px;
+    height: 96px;
+    border-radius: 8px;
+    margin: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s ease;
+}
+
+/* .imageBoxTechStack:hover{
+
+    scale: 1.1;
+
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.3);
+
+} */
+
+.headingOfTechstackTtitle{
+    font-size: 16px;
+    font-weight: 400;
+    
+
+
+}
+
+.techStackConters{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+     gap: 20px;
+
+    overflow-y: hidden;
+
+}
+
+.teactStackIcons{
+    width: 60px;
+    height: 60px;
+}
+.viewMoreTechStack{
+    margin-bottom: 30px;
+
+    display: flex;
+    justify-content: end;
+}
+.niewmoveTExtTECH{
+    font-weight: 300;
+    padding-right: 30px;
+    font-size: 16px;
+
+    transition: all 0.3s ease;
+}
+.niewmoveTExtTECH:hover{
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 999px) {
+    .techStackOnlyCont{
+        width: 40%
+    }
+    .stackWhiteBox{
+        width: 90vw
+    }
+    .mainStackCont{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .stackHeading{
+        width: 90%
+    }
+    
+}
+
+@media screen and (max-width: 567px) {
+
+    .techStackOnlyCont{
+        width: 40%
+    }
+    .headingOfTechstackTtitle{
+        display: none;
+    }
+
+    
+}
+
+.gapygap{
+    margin: 10px;
+}

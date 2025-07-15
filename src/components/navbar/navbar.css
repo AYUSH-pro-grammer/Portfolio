@@ -1,0 +1,205 @@
+.navbar-image{
+
+    height: 35px;
+    width: 35px;
+    border: 1px solid black;
+    
+    border-radius: 8px;
+    background-color: black;
+
+}
+.contofNavCont{
+    height: 99vh;
+    width: 19vw;
+    padding: 100;
+    overflow-y: hidden;
+
+    
+
+
+    
+    
+
+
+}
+.navbar-cont{
+    height: 90vh;
+    width: 100%;
+
+    
+    padding: 16px;
+    padding-top: 20px;
+    border-radius: 10px;
+    margin: 30px;
+    overflow-y: hidden;
+    
+
+    background-color: white;
+
+}
+.navbar-header{
+    display: flex;
+    gap: 16px;
+
+    
+
+
+
+}
+.navbar-title-one{
+    font-size: 1rem;
+    font-weight: 400;
+}.navbar-title-two{
+    font-size: 0.7rem;
+    font-weight: 300;
+    
+}
+
+.navbar-header-titles{
+    display: flex;
+    justify-content: space-between;
+
+    flex-direction: column;
+}
+
+.navbar-links{
+    margin-top: 40px;
+}
+
+.navbar-icons{
+    height: 20px
+}
+
+.navbar-links-element{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+    border-radius: 8px;
+
+    margin-bottom: 10px;
+    cursor: pointer;
+    justify-content: space-between;
+
+}
+.navbar-links-element:hover{
+    background-color: #f7f7f7;
+}
+.navbar-icons-title{
+    font-weight: 400;
+    
+}
+.navbar-dot{
+    height: 4px;
+    width: 4px;
+    background-color: black;
+    border-radius: 10px
+
+}
+
+
+
+.navForMobile{
+    width:99vw;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    display: none;
+}
+
+
+@media screen and (max-width: 999px) {
+    .contofNavCont{
+        display: none;
+    }
+    .navForMobile{
+        display: flex;
+
+    }
+    
+}
+
+
+@media screen and (min-width: 1000px) {
+    .contofNavCont{
+        display: flex;
+    }
+    .navForMobile{
+        display: none;
+    }
+    
+}
+
+
+
+
+.NoListStyle{
+    color: black;
+    text-decoration: none;
+    
+}
+.thisClassToThtat{
+    position: absolute;
+    bottom: 0px;
+    right: 0vw;
+    width: 10vw;
+    z-index: 2;
+}
+@media screen and (max-width: 999px) {
+    .thisClassToThtat{
+        width: 20vw
+    }    
+}
+.boxyBoxOfNavv{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    height: 85vh;
+
+}
+.animntionNAVlotti{
+    width: 30px;
+    transform: rotate(-45deg);
+    scale: 0;
+    transition: all 0.3s ease;
+}.animntionNAVlottiA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.OneElement:hover{
+    
+    .OneANi{
+        scale: 1
+    }
+
+
+}.TwoElement:hover{
+
+        .TwoANi{
+        scale: 1
+    }
+
+
+}.ThreeElement:hover{
+        .ThreeANi{
+        scale: 1
+    }
+
+
+}.FOurElement:hover{
+
+        .FOurANi{
+        scale: 1
+    }
+
+
+}

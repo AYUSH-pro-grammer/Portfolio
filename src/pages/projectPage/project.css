@@ -1,0 +1,20 @@
+.projectMainiCOnt{
+        margin-top: 30px;
+
+}
+.projectHeading{
+            font-weight: 500;
+    border: none;
+    font-size: 48px;
+    width: 90vw;
+}
+@media screen and (max-width: 999px) {
+        .projectMainiCOnt{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                flex-direction: column;
+        }
+        
+}

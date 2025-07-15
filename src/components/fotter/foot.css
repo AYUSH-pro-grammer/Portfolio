@@ -1,0 +1,21 @@
+
+
+.dataofHereData{
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    
+}
+
+.textFOoter{
+    font-weight: 300;
+    cursor: pointer;
+
+}
