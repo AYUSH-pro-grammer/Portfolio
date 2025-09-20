@@ -53,7 +53,7 @@ const Header = () => {
 
       />
 
-                                <h1 className='projectAvail'>Available for Porjects</h1>
+                                <h1 className='projectAvail'>Available for Projects</h1>
 
 
                               </div>
