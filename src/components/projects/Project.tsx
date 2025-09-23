@@ -28,7 +28,7 @@ const Project = () => {
         
         <div className='imageContPort'>
             <h1  className='titleProjeectIMg' >Law Firm</h1> 
-            <a href="https://www.divorcelawyersnoida.online/">Visit</a>
+            <a href="https://www.amdivorcelawyer.online/">Visit</a>
 
         </div>
 
