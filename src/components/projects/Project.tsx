@@ -16,7 +16,7 @@ const Project = () => {
 
         <div className='imageContPort'>
             <h1 className='titleProjeectIMg' >Adv. Site</h1>
-            <a href="https://www.advocatemanjuprajapati.com/">Visit</a>
+            <a href="https://www.advocatemanjuprajapati.com/" target="_blank" rel="noopener noreferrer">Visit</a>
 
         </div>
 
@@ -28,7 +28,7 @@ const Project = () => {
         
         <div className='imageContPort'>
             <h1  className='titleProjeectIMg' >Law Firm</h1> 
-            <a href="https://www.amdivorcelawyer.online/">Visit</a>
+            <a href="https://www.amdivorcelawyer.online/" target="_blank" rel="noopener noreferrer">Visit</a>
 
         </div>
 
