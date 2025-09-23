@@ -124,7 +124,7 @@ Newton School of Technology – B.Tech CSE
             <h1 className='aboutusDot'>•</h1>
             <p className='abutMePraatT' >
 
-Udemy Python Program - CODING Certification Program
+Udemy Python Program - Coding Certification Program
 
 <br /><br />
 
@@ -140,7 +140,7 @@ March – June 2023
             <h1 className='aboutusDot'>•</h1>
             <p className='abutMePraatT' >
 
-Multiple YouTube & Open Source Learning Paths
+YouTube & Open-Source Learning Paths
 
 <br /><br />(Ongoing – DSA, Web, Tools)
 
@@ -181,7 +181,7 @@ Oct 2024
             <p className='abutMePraatT' >
 
                           
-Academic Projects – CLI Library System, Mini Games
+Academic Projects: CLI Library System, Mini Games.
 
 <br /><br />
 2024-25

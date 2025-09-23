@@ -25,12 +25,13 @@ const Stack = () => {
       <h1 className="titleForCont">Stack</h1>
 
       <br />
-      <br />
-      <br />
+     
+     <div className="gapAfterStack"></div>
       <div className="contFoRStack">
         <div className="containterFORstack">
           <h1 className="nameOFteachTackTitle">Web Development</h1>
 
+          <br />
           <br />
 
           <div className="stackONEbox">
@@ -63,7 +64,7 @@ const Stack = () => {
 
               <p className="paraofSTACKp">
         
-                Handles the styling, layout, and responsiveness of your
+                Handles the styling, layout, and responsiveness of my
                 interfaces.
              <br />
              <br />
@@ -118,7 +119,7 @@ const Stack = () => {
               <br />
 
               <p className="paraofSTACKp">
- My core backend + scripting language. Also used for data-related tools and automation.
+Backend and scripting language Also used for data-related tools and automation.
               </p>
             </div>
 
@@ -135,7 +136,7 @@ const Stack = () => {
               <br />
 
               <p className="paraofSTACKp">
-    Robust and scalable SQL database system used in your full-stack applications.
+    Robust and scalable SQL database system used in my full-stack applications.
 
     <br />
     <br />
@@ -149,7 +150,11 @@ const Stack = () => {
 
 
           </div>
+
+          <br />
+          <br />
         </div>
+
 
 
                 <div className="containterFORstack">
@@ -169,7 +174,7 @@ const Stack = () => {
               <br />
 
               <p className="paraofSTACKp">
-           High-performance Python framework for building APIs fast. Used for backend logic and REST APIs.
+           High-performance Python framework for building APIs quickly. Ideal for backend logic and REST APIs.
               </p>
             </div>
 
@@ -188,7 +193,7 @@ const Stack = () => {
 
               <p className="paraofSTACKp">
 
-                 This is a popular full-stack Python web framework.
+A popular full-stack Python web framework.
 
 <br /><br />
               </p>
@@ -203,6 +208,8 @@ const Stack = () => {
           </div>
         </div>
 
+
+<br /><br />
 
 
 
@@ -239,6 +246,7 @@ const Stack = () => {
           </div>
         </div>
 
+<br /><br />
 
                 <div className="containterFORstack">
           <h1 className="nameOFteachTackTitle">Development Tools</h1>
@@ -294,6 +302,8 @@ const Stack = () => {
           </div>
         </div>
 
+        <br /><br />
+
 
 
                 <div className="containterFORstack">
@@ -312,7 +322,8 @@ const Stack = () => {
 
 <br />
               <p className="paraofSTACKp">
-Numerical computing in Python              </p>
+Library for numerical computing in Python.
+</p>
             </div>
 
 
@@ -330,7 +341,7 @@ Numerical computing in Python              </p>
 
               <p className="paraofSTACKp">
 
-Data wrangling and analysis
+Library for data wrangling and analysis.
 
               </p>
             </div>
@@ -349,7 +360,7 @@ Data wrangling and analysis
 
 <br />
               <p className="paraofSTACKp">
-Basic data visualization
+Library for creating basic data visualizations.
 
 
             <br /><br />

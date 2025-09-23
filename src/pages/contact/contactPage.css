@@ -18,6 +18,9 @@
     width: 100%;
 
 }
+.gapBeforeMsg{
+    margin: 20px;
+}
 .socialBoxyBox{
 
     display: flex;

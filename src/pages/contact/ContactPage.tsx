@@ -44,7 +44,7 @@ const ContactPage = () => {
       >
                             <div className='contycont1'>
                                 <img src={email} className='iconsIco' alt="" />
-                                Email
+                                Your Email
                             </div>
 
 
@@ -183,7 +183,7 @@ const ContactPage = () => {
 
 
             <div className='boxForEmailIP'>
-                <label htmlFor=""  className='lalbelOnC' >Name</label>
+                <label htmlFor=""  className='lalbelOnC' >Full Name</label>
                 <br />
             
                 <input type="text"  className='typeInputFor' placeholder='Ayush' required name='name'/>
@@ -204,10 +204,10 @@ const ContactPage = () => {
 
             </div>
 
-            <br /><br /><br />
+            <div className='gapBeforeMsg'></div>
 
             <div className='lowerLimitMag'>
-                <label htmlFor="">Message</label>
+                <label htmlFor="">Your Message</label>
                 <br />
 
                 <textarea id="w3review" className='typeInputForF' name="w3review" placeholder='Type something here...'>

@@ -56,7 +56,7 @@ Newton School of Technology – B.Tech CSE
             <h1 className='aboutusDot'>•</h1>
             <p className='abutMePraatT' >
 
-Udemy Python Program - CODING Certification Program
+Udemy Python Program - Coding Certification Program
 
 <br /><br />
 
@@ -82,8 +82,7 @@ March – June 2023
 
                           
 
-Working on It...
-
+Currently in progress
 
             </p>
 

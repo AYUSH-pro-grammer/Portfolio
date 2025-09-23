@@ -20,7 +20,7 @@ const Contact = () => {
         <div className='otherCOntY'>
 
 
-        <h4 className='contactTitleO'>Do you have any project idea you <br /> want to discuss about?</h4>
+        <h4 className='contactTitleO'>Do you have a project idea you'd <br />like to discuss?</h4>
         
 
               <br />
