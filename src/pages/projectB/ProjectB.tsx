@@ -87,8 +87,9 @@ const ProjectB = () => {
 <br /><br />
 
 <Stack/>
-<Foot/>
 <Contact/>
+      
+<Foot/>
 
     </div>
   )
