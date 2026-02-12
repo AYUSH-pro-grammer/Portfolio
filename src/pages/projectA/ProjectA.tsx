@@ -113,8 +113,9 @@ The success led to a second project for a niche divorce law website</p>
 <br /><br />
 
 <Stack/>
-<Foot/>
+      
 <Contact/>
+<Foot/>
 
     </div>
   )
