@@ -10,10 +10,46 @@ import ProjectB from './pages/projectB/ProjectB';
 
 import StackPage from './pages/stack/StackPage'
 import ContactPage from './pages/contact/ContactPage';
+import Blog from './pages/blog/Blog';
+
+import NstBot from './pages/blog-nst/NstBot';
  
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+import DronePage from './pages/drone-blog/DronePage';
 
 function App() {
+
+   const [subdomain, setsumDomain] = useState<string | null>(null);
+
+   useEffect(()=>{
+
+
+   const host = window.location.host;
+   console.log(host); 
+
+   const arr = host.split(".");
+   setsumDomain(arr[0]);
+
+   console.log("subdimain: ", arr[0]);
+
+
+   }, [])
+
+   if (subdomain=="blog"){
+      return(
+         <Router>
+            <Routes>
+               <Route path="/drone" element={<DronePage />} />
+               <Route path="/" element={<Blog />} />
+            </Routes>
+
+         </Router>
+      )
+   } ;
+
+
   return (
     <Router>
       {/* <div className='body0body'> 
@@ -104,10 +140,21 @@ function App() {
          
         </div>
         } />
-          </Routes>
-        {/* </div>
 
-      </div> */}
+          <Route path="/blog/how-to-make-qotd-bot" element={        <div className='body0body'>
+          
+       
+           
+           <NstBot/>
+
+        </div>
+       } />
+         
+
+
+
+          </Routes>
+ 
     </Router>
   );
 }
