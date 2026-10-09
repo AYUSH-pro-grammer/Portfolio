@@ -9,6 +9,12 @@ import { useState } from "react";
 
 import keyboard from "../../assets/projectImage/keyboard.png";
 import devboard from "../../assets/projectImage/devboard.png";
+import stmDevboard from "../../assets/projectImage/stm-devboard.png";
+import esp32Devboard from "../../assets/projectImage/esp32-devboard.png";
+import lora from "../../assets/projectImage/lora.png";
+import cleanable from "../../assets/projectImage/cleanable.png";
+import ninjaGame from "../../assets/projectImage/ninja-the-game.png";
+
 import imgA from "../../assets/projectImage/imgA.png";
 import imgB from "../../assets/projectImage/imgB.png";
 import drone from "../../assets/projectImage/drone.png";
@@ -26,11 +32,7 @@ type Category = "hardware" | "software" | "game-dev";
 
 type Status = "completed" | "in-progress" | "graveyard";
 
-type Filter =
-  | "all"
-  | "featured"
-  | Category
-  | Status;
+type Filter = "all" | "featured" | Category | Status;
 
 type Project = {
   title: string;
@@ -54,13 +56,25 @@ const filters: Filter[] = [
   "graveyard",
 ];
 
+const filterLabels: Record<Filter, string> = {
+  all: "All",
+  featured: "Featured",
+  hardware: "Hardware",
+  software: "Software",
+  "game-dev": "Game Dev",
+  completed: "Completed",
+  "in-progress": "In Progress",
+  graveyard: "Graveyard",
+};
+
 const data: Project[] = [
+  // Featured projects: order here determines display order.
   {
-    title: "Custom Keyboard",
-    github_url: "https://github.com/AYUSH-pro-grammer/keyboard",
-    image: keyboard,
+    title: "LoRa Board",
+    github_url: "https://github.com/AYUSH-pro-grammer/lora",
+    image: lora,
     category: "hardware",
-    status: "completed",
+    status: "in-progress",
     featured: true,
   },
   {
@@ -72,25 +86,45 @@ const data: Project[] = [
     featured: true,
   },
   {
-    title: "STM Devboard",
-    github_url: "https://github.com/AYUSH-pro-grammer/stm-devboard",
+    title: "Cleanable",
+    github_url: "https://github.com/AYUSH-pro-grammer/cleanable-thegame",
+    image: cleanable,
+    demo: "https://ayushpro1428.itch.io/cleanable",
+    category: "game-dev",
+    status: "completed",
+    featured: true,
+  },
+  {
+    title: "Custom Keyboard",
+    github_url: "https://github.com/AYUSH-pro-grammer/keyboard",
+    image: keyboard,
     category: "hardware",
-    status: "in-progress",
+    status: "completed",
     featured: true,
   },
   {
     title: "ESP32 Devboard",
     github_url: "https://github.com/AYUSH-pro-grammer/esp32-devboard",
-    image: devboard,
+    image: esp32Devboard,
     category: "hardware",
     status: "in-progress",
     featured: true,
   },
   {
-    title: "LoRa Board",
-    github_url: "https://github.com/AYUSH-pro-grammer/lora",
+    title: "STM Devboard",
+    github_url: "https://github.com/AYUSH-pro-grammer/stm-devboard",
+    image: stmDevboard,
     category: "hardware",
     status: "in-progress",
+    featured: true,
+  },
+  {
+    title: "Ninja - The Game",
+    github_url: "https://github.com/AYUSH-pro-grammer/ninja-the-game",
+    image: ninjaGame,
+    demo: "https://ayushpro1428.itch.io/ninja-game",
+    category: "game-dev",
+    status: "completed",
     featured: true,
   },
   {
@@ -113,27 +147,15 @@ const data: Project[] = [
     status: "completed",
     featured: true,
   },
-  {
-    title: "Ninja - The Game",
-    github_url: "https://github.com/AYUSH-pro-grammer/ninja-the-game",
-    category: "game-dev",
-    status: "completed",
-    featured: true,
-  },
-  {
-    title: "Cleanable",
-    github_url: "https://github.com/AYUSH-pro-grammer/cleanable-thegame",
-    category: "game-dev",
-    status: "in-progress",
-    featured: true,
-  },
+
+  // Other hardware projects
   {
     title: "Drone",
     github_url: "",
     image: drone,
     category: "hardware",
     status: "completed",
-    featured: true,
+    featured: false,
   },
   {
     title: "Split Keyboard",
@@ -210,20 +232,8 @@ const data: Project[] = [
   },
 ];
 
-const filterLabels: Record<Filter, string> = {
-  all: "All",
-  featured: "Featured",
-  hardware: "Hardware",
-  software: "Software",
-  "game-dev": "Game Dev",
-  completed: "Completed",
-  "in-progress": "In Progress",
-  graveyard: "Graveyard",
-};
-
 const ProjectP = () => {
-  const [activeFilter, setActiveFilter] =
-    useState<Filter>("featured");
+  const [activeFilter, setActiveFilter] = useState<Filter>("featured");
 
   const renderData = data.filter((project) => {
     if (activeFilter === "all") return true;
@@ -265,10 +275,7 @@ const ProjectP = () => {
       <div className="p-page-cont">
         <div className="p-page-showcase-cont">
           {renderData.map((project) => (
-            <article
-              className="p-page-item"
-              key={project.title}
-            >
+            <article className="p-page-item" key={project.title}>
               <div className="p-page-image-wrap">
                 {project.image ? (
                   <img
@@ -289,9 +296,7 @@ const ProjectP = () => {
               </div>
 
               <div className="p-page-image-port">
-                <h2 className="p-page-title">
-                  {project.title}
-                </h2>
+                <h2 className="p-page-title">{project.title}</h2>
 
                 <div className="p-page-links">
                   {project.github_url ? (
@@ -314,7 +319,7 @@ const ProjectP = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Demo
+                      Play Demo
                     </a>
                   )}
 
