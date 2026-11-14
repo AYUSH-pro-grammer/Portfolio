@@ -181,7 +181,7 @@ const Navbar = ({no}: NavbarProps) => {
         <div className='navbar-links'>
 
 
-<a href="mailto:ayushpro@gmail.com" target="_blank" className='a'>
+<a href="mailto:ayushpro1428@gmail.com" target="_blank" className='a'>
     
 
                 <div className='navbar-links-element OneElement' >

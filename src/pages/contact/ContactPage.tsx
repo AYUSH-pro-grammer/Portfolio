@@ -34,7 +34,7 @@ const ContactPage = () => {
                     <div className='socialBoxyBox'>
 
 
-                      <a  target="_blank" href="mailto:ayushpro@gmail.com"  className='a socialLinks '
+                      <a  target="_blank" href="mailto:ayushpro1428@gmail.com"  className='a socialLinks '
 
 
                         

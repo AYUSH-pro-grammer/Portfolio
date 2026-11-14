@@ -27,12 +27,10 @@ function App() {
 
 
    const host = window.location.host;
-   console.log(host); 
 
    const arr = host.split(".");
    setsumDomain(arr[0]);
 
-   console.log("subdimain: ", arr[0]);
 
 
    }, [])
