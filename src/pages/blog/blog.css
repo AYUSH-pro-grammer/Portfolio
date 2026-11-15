@@ -784,3 +784,18 @@
     transition: none;
   }
 }
+
+/* Large and ultrawide screens: wider column, four cards per row. */
+@media (min-width: 1600px) {
+  .bl-wrap {
+    max-width: 1440px;
+  }
+
+  .bl-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .pp-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

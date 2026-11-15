@@ -1,0 +1,31 @@
+/*
+  Large and ultrawide screens.
+
+  The site is sized in vw (sidebar 19vw, content 79vw, sections ~78vw), which
+  keeps scaling forever on a 34" ultrawide. Above 1680px wide we freeze the
+  layout at its 1680px proportions and centre it. --fvw is "1vw of a 1680px
+  screen", so every width below matches what a 1680px display shows.
+*/
+@media screen and (min-width: 1680px) {
+  .body0body {
+    --fvw: 16.8px;
+    width: 1680px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .body0body .contofNavCont { width: calc(19 * var(--fvw)); }
+  .body0body .contentOFconter { width: calc(79 * var(--fvw)); }
+  .body0body .thisClassToThtat { width: calc(10 * var(--fvw)); }
+
+  .body0body .header-cont { width: calc(79 * var(--fvw)); }
+  .body0body .projectShowCaseCont,
+  .body0body .contactOverVIew,
+  .body0body .aboutUsCont,
+  .body0body .contactPageCont,
+  .body0body .stackWhiteBox,
+  .body0body .projectAspace,
+  .body0body .contFoRStack { width: calc(78 * var(--fvw)); }
+  .body0body .socialBoxyBox { width: calc(77 * var(--fvw)); }
+  .body0body .boxForEmailIP { width: calc(80 * var(--fvw)); }
+}

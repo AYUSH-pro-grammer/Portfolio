@@ -1,4 +1,5 @@
 import "./App.css";
+import "./wide.css";
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Navigate, Outlet, Route, Routes } from "react-router-dom";
 

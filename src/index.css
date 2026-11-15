@@ -14,3 +14,7 @@ body{
   overflow-x: hidden ;
 
 }
+/* body is a flex container, so #root would otherwise shrink to its content. */
+#root{
+  width: 100%;
+}

@@ -159,7 +159,14 @@ const Navbar = () => {
             </div>
 
 </Link>
-          
+
+<Link to="/blog" className='NoListStyle'>
+            <div className='navbar-links-element' >
+                <h4 className='navbar-icons-title'>Blog</h4>
+                <span className='navbar-blog-arrow' aria-hidden="true">↗</span>
+            </div>
+</Link>
+
 
 
 
@@ -335,6 +342,13 @@ const Navbar = () => {
             <div className='navbar-links-element' onClick={()=>changeSidebar(false)} >
                 <h4 className='navbar-icons-title'>Contact</h4>
                 {dots[4] ? <div className='navbar-dot'></div>: <div></div> }
+            </div>
+</Link>
+
+<Link to="/blog" className='NoListStyle'>
+            <div className='navbar-links-element' onClick={()=>changeSidebar(false)} >
+                <h4 className='navbar-icons-title'>Blog</h4>
+                <span className='navbar-blog-arrow' aria-hidden="true">↗</span>
             </div>
 </Link>
 
