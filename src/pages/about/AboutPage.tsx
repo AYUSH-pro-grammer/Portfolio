@@ -10,6 +10,7 @@ import Stack from '../../components/stack/Stack'
 
 import Foot from '../../components/fotter/Foot'
 import Contact from '../../components/contact/Contact'
+import Certificates from '../../components/certificates/Certificates'
 
 const AboutPage = () => {
   return (
@@ -197,34 +198,7 @@ Academic Projects: CLI Library System, Mini Games.
 <img src={four} alt=""  className='svgImageABout'/>
 
  <h3 className='aboutMeheadingT' >Certifications</h3>
-    <div className='aboutusDOTcombi'>
-            <h1 className='aboutusDot'>•</h1>
-            <p className='abutMePraatT' >
-
-NST DSA Hackathon
-<br /><br />
-22 July 2024
-
-
-            </p>
-
-    </div>
-
-
-    <br /><br />
-
-        <div className='aboutusDOTcombi'>
-            <h1 className='aboutusDot'>•</h1>
-            <p className='abutMePraatT' >
-
-IIT Madras – School Connect Program
-<br /><br />
-Oct 2024
-
-
-            </p>
-
-    </div>
+    <Certificates />
           </div>
 </div>
 

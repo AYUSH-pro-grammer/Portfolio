@@ -7,6 +7,7 @@ import three from '../../../src/assets/icon/three.svg'
 import four from '../../../src/assets/icon/four.svg'
 
 import { Link } from 'react-router-dom'
+import Certificates from '../certificates/Certificates'
 
 
 
@@ -94,18 +95,7 @@ Currently in progress
 <img src={four} alt=""  className='svgImageABout'/>
 
  <h3 className='aboutMeheadingT' >Certifications</h3>
-    <div className='aboutusDOTcombi'>
-            <h1 className='aboutusDot'>•</h1>
-            <p className='abutMePraatT' >
-
-NST DSA Hackathon
-<br /><br />
-22 July 2024
-
-
-            </p>
-
-    </div>
+    <Certificates />
           </div>
 </div>
 
