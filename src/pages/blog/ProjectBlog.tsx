@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./blog.css";
 import BlogNav from "./BlogNav";
 import {
@@ -42,6 +42,23 @@ const browsable = pageProjects.filter((p) => !p.postPath);
 export default function ProjectBlog() {
   const { slug = "" } = useParams();
   const project = getProject(slug);
+  const [active, setActive] = useState("guide");
+
+  // Highlight the sidebar entry for the section currently on screen:
+  // the last section whose top has scrolled past the top bar.
+  useEffect(() => {
+    const update = () => {
+      const targets = document.querySelectorAll<HTMLElement>("#guide, .pp-step, #about");
+      let current = "guide";
+      targets.forEach((t) => {
+        if (t.getBoundingClientRect().top <= 120) current = t.id;
+      });
+      setActive(current);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, [slug]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -82,7 +99,46 @@ export default function ProjectBlog() {
     <div className="bl-root">
       <BlogNav back />
 
-      <main className="bl-wrap">
+      <div className="bl-wrap bl-layout">
+        <aside className="bl-side pp-side" aria-label="On this page">
+          <p className="bl-side-label">On this page</p>
+          <ul className="bl-side-list pp-side-list">
+            <li>
+              <button type="button" className={active === "guide" ? "is-active" : ""} onClick={() => scrollToId("guide")}>
+                Guide{!guide && <span className="pp-side-muted"> · not written</span>}
+              </button>
+            </li>
+            {guide?.steps.map((st, n) => (
+              <li key={st.title} className="pp-side-step">
+                <button
+                  type="button"
+                  className={active === `step-${n + 1}` ? "is-active" : ""}
+                  onClick={() => scrollToId(`step-${n + 1}`)}
+                >
+                  <span className="pp-toc-num">{pad(n + 1)}</span> {st.title}
+                </button>
+              </li>
+            ))}
+            <li>
+              <button type="button" className={active === "about" ? "is-active" : ""} onClick={() => scrollToId("about")}>
+                What is this?
+              </button>
+            </li>
+          </ul>
+          <p className="bl-side-label">More</p>
+          <ul className="bl-side-list">
+            <li>
+              <Link to={blogHref()}>← All projects</Link>
+            </li>
+            {next && (
+              <li>
+                <Link to={blogHref(next.slug)}>Next: {next.title}</Link>
+              </li>
+            )}
+          </ul>
+        </aside>
+
+      <main className="bl-main">
         <header className="pp-hero">
           <div>
             <p className="bl-kicker">
@@ -290,6 +346,7 @@ export default function ProjectBlog() {
           <Link to={blogHref()}>All projects →</Link>
         </footer>
       </main>
+      </div>
     </div>
   );
 }

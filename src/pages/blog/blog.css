@@ -799,3 +799,192 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* ───── Two-column layout with a left sidebar ───── */
+.bl-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.bl-main {
+  min-width: 0;
+}
+
+.bl-side {
+  position: sticky;
+  top: 72px;
+  max-height: calc(100vh - 88px);
+  overflow-y: auto;
+  padding: 40px 6px 24px 0;
+  font-size: 14px;
+  scrollbar-width: thin;
+}
+
+.bl-side-label {
+  font-family: var(--bl-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--bl-muted);
+  margin: 18px 0 8px;
+}
+
+.bl-side-label:first-child {
+  margin-top: 0;
+}
+
+.bl-side ul {
+  list-style: none;
+}
+
+.bl-side-views {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bl-side-view {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--bl-line);
+  background: var(--bl-paper);
+  color: var(--bl-ink);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.bl-side-view:hover {
+  border-color: var(--bl-ink);
+}
+
+.bl-side-view[aria-pressed="true"] {
+  background: var(--bl-ink);
+  border-color: var(--bl-ink);
+  color: var(--bl-paper);
+}
+
+.bl-side-count {
+  font-family: var(--bl-mono);
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.bl-side-list li a,
+.bl-side-list li button {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  width: 100%;
+  padding: 5px 8px;
+  border: none;
+  border-left: 2px solid transparent;
+  background: none;
+  color: var(--bl-ink);
+  font: inherit;
+  font-size: 13.5px;
+  line-height: 1.35;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bl-side-list li a:hover,
+.bl-side-list li button:hover {
+  background: var(--bl-soft);
+}
+
+.bl-side-list li .is-active {
+  border-left-color: var(--bl-accent);
+  background: #eef0ff;
+  font-weight: 600;
+}
+
+.bl-side-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bl-guide);
+  flex: none;
+  align-self: center;
+  margin-left: auto;
+}
+
+.pp-side-step button {
+  padding-left: 14px !important;
+  font-size: 12.5px !important;
+  color: var(--bl-muted) !important;
+}
+
+.pp-side-step .is-active {
+  color: var(--bl-ink) !important;
+}
+
+.pp-side-muted {
+  color: var(--bl-muted);
+  font-weight: 400;
+}
+
+/* Wide screens have the sidebar, so the inline jump links aren't needed. */
+@media (min-width: 1001px) {
+  .bl-layout .pp-jump {
+    display: none;
+  }
+}
+
+/* Small screens: the sidebar becomes a row of section chips. */
+@media (max-width: 1000px) {
+  .bl-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .bl-side {
+    position: sticky;
+    top: 56px;
+    z-index: 5;
+    max-height: none;
+    overflow: visible;
+    margin: 0 -24px;
+    padding: 10px 24px;
+    background: var(--bl-paper);
+    border-bottom: 1px solid var(--bl-ink);
+  }
+
+  .bl-side > .bl-side-label,
+  .bl-side-projects,
+  .pp-side {
+    display: none;
+  }
+
+  .bl-side {
+    min-width: 0;
+  }
+
+  .bl-side-views {
+    flex-direction: row;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .bl-side-view {
+    width: auto;
+    white-space: nowrap;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bl-side {
+    margin: 0 -16px;
+    padding: 10px 16px;
+  }
+}

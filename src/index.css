@@ -18,3 +18,17 @@ body{
 #root{
   width: 100%;
 }
+
+/* The rule on * above turns headings into tiny scroll boxes (a stray scrollbar
+   shows next to titles like "Projects"). Headings never need to clip. */
+h1, h2, h3, h4, h5, h6{
+  overflow: visible;
+}
+
+/* On blog pages, let the window scroll normally so sticky sidebars work. */
+html:has(.bl-root),
+body:has(.bl-root),
+#root:has(.bl-root){
+  overflow-x: clip;
+  overflow-y: visible;
+}
