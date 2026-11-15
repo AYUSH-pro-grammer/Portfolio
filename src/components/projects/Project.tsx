@@ -1,9 +1,10 @@
 import "./project.css";
 import { Link } from "react-router-dom";
-import { projects } from "../../data/projects";
+import { getProject, type Project as ProjectData } from "../../data/projects";
 
-// The home page shows the top four featured projects.
-const top = projects.filter((p) => p.featured).slice(0, 4);
+// The four projects shown on the home page, in this order.
+const homeSlugs = ["motor-driver", "simple-english", "cleanable", "keyboard"];
+const top = homeSlugs.map(getProject).filter((p): p is ProjectData => !!p);
 
 const Project = () => {
   return (
