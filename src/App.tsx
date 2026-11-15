@@ -1,158 +1,75 @@
-import Navbar from './components/navbar/Navbar';
-import './App.css';
+import "./App.css";
+import { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Navigate, Outlet, Route, Routes } from "react-router-dom";
 
-import AboutPage from './pages/about/AboutPage';
-import Home from './pages/home/Home';
-import ProjectP from './pages/projectPage/ProjectP';
-import ProjectA from './pages/projectA/ProjectA';
-import ProjectB from './pages/projectB/ProjectB';
+import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
+import AboutPage from "./pages/about/AboutPage";
+import ProjectP from "./pages/projectPage/ProjectP";
+import ProjectA from "./pages/projectA/ProjectA";
+import ProjectB from "./pages/projectB/ProjectB";
+import StackPage from "./pages/stack/StackPage";
+import ContactPage from "./pages/contact/ContactPage";
+import { isBlogHost } from "./lib/blog";
 
+// Blog pages are loaded on demand so the main portfolio stays light.
+const Blog = lazy(() => import("./pages/blog/Blog"));
+const ProjectBlog = lazy(() => import("./pages/blog/ProjectBlog"));
+const DronePage = lazy(() => import("./pages/drone-blog/DronePage"));
+const NstBot = lazy(() => import("./pages/blog-nst/NstBot"));
 
-import StackPage from './pages/stack/StackPage'
-import ContactPage from './pages/contact/ContactPage';
-import Blog from './pages/blog/Blog';
+function SiteLayout() {
+  return (
+    <div className="body0body">
+      <Navbar />
+      <div className="contentOFconter">
+        <Outlet />
+      </div>
+    </div>
+  );
+}
 
-import NstBot from './pages/blog-nst/NstBot';
- 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-
-import DronePage from './pages/drone-blog/DronePage';
+const Loading = () => <div style={{ minHeight: "100vh" }} />;
 
 function App() {
-
-   const [subdomain, setsumDomain] = useState<string | null>(null);
-
-   useEffect(()=>{
-
-
-   const host = window.location.host;
-
-   const arr = host.split(".");
-   setsumDomain(arr[0]);
-
-
-
-   }, [])
-
-   if (subdomain=="blog"){
-      return(
-         <Router>
-            <Routes>
-               <Route path="/drone" element={<DronePage />} />
-               <Route path="/" element={<Blog />} />
-            </Routes>
-
-         </Router>
-      )
-   } ;
-
+  // blog.ayushpro1428.tech serves only the blog.
+  if (isBlogHost) {
+    return (
+      <Router>
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path="/" element={<Blog />} />
+            <Route path="/drone" element={<DronePage />} />
+            <Route path="/how-to-make-qotd-bot" element={<div className="body0body"><NstBot /></div>} />
+            <Route path="/:slug" element={<ProjectBlog />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
+      </Router>
+    );
+  }
 
   return (
     <Router>
-      {/* <div className='body0body'> 
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route element={<SiteLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/projects" element={<ProjectP />} />
+            <Route path="/ProjectA" element={<ProjectA />} />
+            <Route path="/ProjectB" element={<ProjectB />} />
+            <Route path="/stack" element={<StackPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Route>
 
-
-
-
-
-
-        <div className='contentOFconter'> */}
-          <Routes>
-            <Route path="/" element={
-
-                      <div className='body0body'>
-          
-        <Navbar no={0}/>
-           <div className='contentOFconter'>
-            <Home/>
-           </div>
-         
-        </div>
-
-            } />
-            <Route path="/about" element={
-              
-                      <div className='body0body'>
-          
-        <Navbar no={1}/>
-           <div className='contentOFconter'>
-            <AboutPage />
-           </div>
-         
-        </div>
-        
-        } />
-            <Route path="/projects" element={        <div className='body0body'>
-          
-        <Navbar no={1}/>
-           <div className='contentOFconter'>
-             <ProjectP />
-           </div>
-         
-        </div>
-      } />
-
-            <Route path="/ProjectA" element={
-              
-                      <div className='body0body'>
-          
-        <Navbar no={1}/>
-           <div className='contentOFconter'>
-            <ProjectA />
-           </div>
-         
-        </div>
-
-
-
-              } />
-
-
-            <Route path="/ProjectB" element={        <div className='body0body'>
-          
-        <Navbar no={1}/>
-           <div className='contentOFconter'>
-            <ProjectB />
-           </div>
-         
-        </div>
-       } />
-
-
-            <Route path="/stack" element={        <div className='body0body'>
-          
-        <Navbar no={1}/>
-           <div className='contentOFconter'>
-            <StackPage />
-           </div>
-         
-        </div>
-       } />
-            <Route path="/contact" element={        <div className='body0body'>
-          
-        <Navbar no={1}/>
-           <div className='contentOFconter'>
-          <ContactPage />
-           </div>
-         
-        </div>
-        } />
-
-          <Route path="/blog/how-to-make-qotd-bot" element={        <div className='body0body'>
-          
-       
-           
-           <NstBot/>
-
-        </div>
-       } />
-         
-
-
-
-          </Routes>
- 
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/drone" element={<DronePage />} />
+          <Route path="/blog/how-to-make-qotd-bot" element={<div className="body0body"><NstBot /></div>} />
+          <Route path="/blog/:slug" element={<ProjectBlog />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

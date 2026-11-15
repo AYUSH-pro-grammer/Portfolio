@@ -8,7 +8,7 @@ const Foot = () => {
         <div className='dataofHereData'>
 
 
-  <h6 className='textFOoter' >© Copyright 2025 by AYUSH</h6>
+  <h6 className='textFOoter' >© Copyright {new Date().getFullYear()} by AYUSH</h6>
 
   <h6 className='textFOoter' >|</h6>
 

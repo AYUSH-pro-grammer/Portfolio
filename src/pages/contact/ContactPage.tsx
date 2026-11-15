@@ -34,7 +34,7 @@ const ContactPage = () => {
                     <div className='socialBoxyBox'>
 
 
-                      <a  target="_blank" href="mailto:ayushpro1428@gmail.com"  className='a socialLinks '
+                      <a  target="_blank" rel="noopener noreferrer" href="mailto:ayushpro1428@gmail.com"  className='a socialLinks '
 
 
                         
@@ -71,7 +71,7 @@ const ContactPage = () => {
                       </a>
                     
                         
-                        <a target="_blank" href="https://github.com/AYUSH-pro-grammer" className='a socialLinks'
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/AYUSH-pro-grammer" className='a socialLinks'
                       
                       
                         
@@ -103,7 +103,7 @@ const ContactPage = () => {
                           </a>
 
 
-<a target="_blank" href="https://linkedin.com/in/ayushpro1428/" className='a socialLinks'
+<a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/ayushpro1428/" className='a socialLinks'
                         
       onMouseEnter={() => lottieRef3.current?.play()}
       onMouseLeave={() => lottieRef3.current?.stop()}

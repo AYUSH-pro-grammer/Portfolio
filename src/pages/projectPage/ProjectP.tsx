@@ -1,49 +1,14 @@
-
 import "./project.css";
+
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import Stack from "../../components/stack/Stack";
 import Contact from "../../components/contact/Contact";
 import Foot from "../../components/fotter/Foot";
-
-import { useState } from "react";
-
-import keyboard from "../../assets/projectImage/keyboard.png";
-import devboard from "../../assets/projectImage/devboard.png";
-import stmDevboard from "../../assets/projectImage/stm-devboard.png";
-import esp32Devboard from "../../assets/projectImage/esp32-devboard.png";
-import lora from "../../assets/projectImage/lora.png";
-import cleanable from "../../assets/projectImage/cleanable.png";
-import ninjaGame from "../../assets/projectImage/ninja-the-game.png";
-
-import imgA from "../../assets/projectImage/imgA.png";
-import imgB from "../../assets/projectImage/imgB.png";
-import drone from "../../assets/projectImage/drone.png";
-import splitkeyboard from "../../assets/projectImage/splitkeyboard.png";
-import keycaps from "../../assets/projectImage/keycaps.png";
-import blinkyboard from "../../assets/projectImage/blinkyboard.png";
-import hermes from "../../assets/projectImage/hermes.png";
-import pathfinder from "../../assets/projectImage/pathfinder.png";
-import rccar from "../../assets/projectImage/rccar.png";
-import robodog from "../../assets/projectImage/robodog.png";
-import hackpad from "../../assets/projectImage/hackpad.png";
-import flightcontroller from "../../assets/projectImage/flightcontroller.png";
-
-type Category = "hardware" | "software" | "game-dev";
-
-type Status = "completed" | "in-progress" | "graveyard";
+import { projects, type Category, type Status } from "../../data/projects";
 
 type Filter = "all" | "featured" | Category | Status;
-
-type Project = {
-  title: string;
-  github_url: string;
-  image?: string;
-  demo?: string;
-  guide?: string;
-  category: Category;
-  status: Status;
-  featured: boolean;
-};
 
 const filters: Filter[] = [
   "all",
@@ -67,186 +32,15 @@ const filterLabels: Record<Filter, string> = {
   graveyard: "Graveyard",
 };
 
-const data: Project[] = [
-  // Featured projects: order here determines display order.
-  {
-    title: "LoRa Board",
-    github_url: "https://github.com/AYUSH-pro-grammer/lora",
-    image: lora,
-    category: "hardware",
-    status: "in-progress",
-    featured: true,
-  },
-  {
-    title: "Devboard",
-    github_url: "https://github.com/AYUSH-pro-grammer/devboard",
-    image: devboard,
-    category: "hardware",
-    status: "in-progress",
-    featured: true,
-  },
-  {
-    title: "Cleanable",
-    github_url: "https://github.com/AYUSH-pro-grammer/cleanable-thegame",
-    image: cleanable,
-    demo: "https://ayushpro1428.itch.io/cleanable",
-    category: "game-dev",
-    status: "completed",
-    featured: true,
-  },
-  {
-    title: "Custom Keyboard",
-    github_url: "https://github.com/AYUSH-pro-grammer/keyboard",
-    image: keyboard,
-    category: "hardware",
-    status: "completed",
-    featured: true,
-  },
-  {
-    title: "ESP32 Devboard",
-    github_url: "https://github.com/AYUSH-pro-grammer/esp32-devboard",
-    image: esp32Devboard,
-    category: "hardware",
-    status: "in-progress",
-    featured: true,
-  },
-  {
-    title: "STM Devboard",
-    github_url: "https://github.com/AYUSH-pro-grammer/stm-devboard",
-    image: stmDevboard,
-    category: "hardware",
-    status: "in-progress",
-    featured: true,
-  },
-  {
-    title: "Ninja - The Game",
-    github_url: "https://github.com/AYUSH-pro-grammer/ninja-the-game",
-    image: ninjaGame,
-    demo: "https://ayushpro1428.itch.io/ninja-game",
-    category: "game-dev",
-    status: "completed",
-    featured: true,
-  },
-  {
-    title: "Advocate Manju Prajapati",
-    github_url:
-      "https://github.com/AYUSH-pro-grammer/advocate-manju-prajapati-v2",
-    image: imgA,
-    demo: "https://advocatemanjuprajapati.com",
-    category: "software",
-    status: "completed",
-    featured: true,
-  },
-  {
-    title: "AM Divorce Lawyer",
-    github_url:
-      "https://github.com/AYUSH-pro-grammer/Divorce-Law-Firm",
-    image: imgB,
-    demo: "https://www.amdivorcelawyer.online",
-    category: "software",
-    status: "completed",
-    featured: true,
-  },
-
-  // Other hardware projects
-  {
-    title: "Drone",
-    github_url: "",
-    image: drone,
-    category: "hardware",
-    status: "completed",
-    featured: false,
-  },
-  {
-    title: "Split Keyboard",
-    github_url: "https://github.com/AYUSH-pro-grammer/split-keyboard",
-    image: splitkeyboard,
-    category: "hardware",
-    status: "in-progress",
-    featured: false,
-  },
-  {
-    title: "Keycaps",
-    github_url: "https://github.com/AYUSH-pro-grammer/keycaps",
-    image: keycaps,
-    category: "hardware",
-    status: "in-progress",
-    featured: false,
-  },
-  {
-    title: "Blinky Board",
-    github_url: "https://github.com/AYUSH-pro-grammer/led-timer",
-    image: blinkyboard,
-    category: "hardware",
-    status: "completed",
-    featured: false,
-  },
-  {
-    title: "Hermes",
-    github_url: "https://github.com/AYUSH-pro-grammer/hermes",
-    image: hermes,
-    category: "hardware",
-    status: "in-progress",
-    featured: false,
-  },
-  {
-    title: "Pathfinder",
-    github_url: "https://github.com/AYUSH-pro-grammer/pathFinder",
-    image: pathfinder,
-    category: "hardware",
-    status: "in-progress",
-    featured: false,
-  },
-  {
-    title: "RC Camera Car",
-    github_url: "https://github.com/AYUSH-pro-grammer/rc-camera-car",
-    image: rccar,
-    category: "hardware",
-    status: "graveyard",
-    featured: false,
-  },
-  {
-    title: "Robo Dog",
-    github_url: "https://github.com/AYUSH-pro-grammer/robo-dog-esp32",
-    image: robodog,
-    category: "hardware",
-    status: "completed",
-    featured: false,
-  },
-  {
-    title: "Hackpad",
-    github_url: "https://github.com/AYUSH-pro-grammer/hackpad",
-    image: hackpad,
-    category: "hardware",
-    status: "completed",
-    featured: false,
-  },
-  {
-    title: "Flight Controller",
-    github_url:
-      "https://github.com/AYUSH-pro-grammer/esp32-flight-controller",
-    image: flightcontroller,
-    category: "hardware",
-    status: "completed",
-    featured: false,
-  },
-];
-
 const ProjectP = () => {
   const [activeFilter, setActiveFilter] = useState<Filter>("featured");
 
-  const renderData = data.filter((project) => {
+  const renderData = projects.filter((project) => {
     if (activeFilter === "all") return true;
     if (activeFilter === "featured") return project.featured;
-
-    if (
-      activeFilter === "hardware" ||
-      activeFilter === "software" ||
-      activeFilter === "game-dev"
-    ) {
+    if (activeFilter === "hardware" || activeFilter === "software" || activeFilter === "game-dev") {
       return project.category === activeFilter;
     }
-
     return project.status === activeFilter;
   });
 
@@ -259,11 +53,7 @@ const ProjectP = () => {
           <button
             key={filter}
             type="button"
-            className={
-              activeFilter === filter
-                ? "p-page-filter p-page-filter-active"
-                : "p-page-filter"
-            }
+            className={activeFilter === filter ? "p-page-filter p-page-filter-active" : "p-page-filter"}
             aria-pressed={activeFilter === filter}
             onClick={() => setActiveFilter(filter)}
           >
@@ -274,68 +64,48 @@ const ProjectP = () => {
 
       <div className="p-page-cont">
         <div className="p-page-showcase-cont">
-          {renderData.map((project) => (
-            <article className="p-page-item" key={project.title}>
-              <div className="p-page-image-wrap">
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    className="p-page-image"
-                    alt={`${project.title} project`}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div
-                    className="p-page-image p-page-image-placeholder"
-                    role="img"
-                    aria-label={`${project.title} image coming soon`}
-                  >
-                    <span>{project.title}</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="p-page-image-port">
-                <h2 className="p-page-title">{project.title}</h2>
-
-                <div className="p-page-links">
-                  {project.github_url ? (
-                    <a
-                      href={project.github_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>
+          {renderData.map((project) => {
+            const page = project.hasPage ? `/blog/${project.postPath ?? project.slug}` : undefined;
+            return (
+              <article className="p-page-item" key={project.slug}>
+                <div className="p-page-image-wrap">
+                  {project.cover ? (
+                    page ? (
+                      <Link to={page} tabIndex={-1} aria-hidden="true">
+                        <img src={project.cover} className="p-page-image" alt="" loading="lazy" />
+                      </Link>
+                    ) : (
+                      <img src={project.cover} className="p-page-image" alt={`${project.title} project`} loading="lazy" />
+                    )
                   ) : (
-                    <span className="p-page-coming-soon">
-                      Coming Soon
-                    </span>
-                  )}
-
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Play Demo
-                    </a>
-                  )}
-
-                  {project.guide && (
-                    <a
-                      href={project.guide}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Guide
-                    </a>
+                    <div className="p-page-image p-page-image-placeholder" role="img" aria-label={`${project.title} image coming soon`}>
+                      <span>{project.title}</span>
+                    </div>
                   )}
                 </div>
-              </div>
-            </article>
-          ))}
+
+                <div className="p-page-image-port">
+                  <h2 className="p-page-title">{project.title}</h2>
+
+                  <div className="p-page-links">
+                    {page && <Link to={page}>{project.hasGuide ? "Guide" : "Overview"}</Link>}
+                    {project.github ? (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        GitHub
+                      </a>
+                    ) : (
+                      !page && <span className="p-page-coming-soon">Coming Soon</span>
+                    )}
+                    {project.demo && (
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        {project.category === "game-dev" ? "Play Demo" : project.category === "software" ? "Visit" : "Demo"}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 

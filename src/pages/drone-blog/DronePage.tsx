@@ -1,14 +1,14 @@
 import './drone.css';
 import { Link } from 'react-router-dom';
+import { blogHref, mainSiteHref } from '../../lib/blog';
 import ClickSpark from './react-bits/ClickSpark';
 import Shuffle from './react-bits/Shuffle';
 import PixelTransition from './react-bits/PixelTransition';
 
 
-import allItems from "./assets/allItems.png"
-import { useEffect, useState } from 'react';
+import allItems from "./assets/allItems.webp"
 
-import controller from './image/controller.png';
+import controller from './image/controller.webp';
 // import PixelTransition from './PixelTransition';
 
 
@@ -92,11 +92,7 @@ import controller from './image/controller.png';
   }
 ];
 
-const [data, setData] = useState(tableOfContent);
-
-useEffect(()=>{
-   setData(tableOfContent);
-}, [])
+const data = tableOfContent;
 
 
 
@@ -158,9 +154,9 @@ useEffect(()=>{
 
 <nav className='drone-nav'>
    <ul className='drone-nav-list'>
-      <li className='liLinksNav liLinksNav1' ><Link  className="droneLink" to="/">Menu</Link></li>
-      <li className='liLinksNav liLinksNav2' ><Link className="droneLink"  to="https://www.ayushpro1428.tech/stack">AYUSH</Link></li>
-      <li className='liLinksNav liLinksNav3' ><Link className="droneLink"  to="/">More Blog</Link></li>
+      <li className='liLinksNav liLinksNav1' ><Link  className="droneLink" to={blogHref()}>Menu</Link></li>
+      <li className='liLinksNav liLinksNav2' ><a className="droneLink" href={mainSiteHref("/")}>AYUSH</a></li>
+      <li className='liLinksNav liLinksNav3' ><Link className="droneLink"  to={blogHref()}>More Blog</Link></li>
    </ul>
 </nav>
 
@@ -211,7 +207,7 @@ key="shuffle1"
 
 
 <div className='drone-image-wrapper'>
-   <img src={allItems} alt="" className='drone-image' />
+   <img src={allItems} alt="All the drone parts laid out" className='drone-image' />
 </div>
 
 
@@ -222,6 +218,7 @@ key="shuffle1"
 <div className="table-cont">
 
    <table className='table'>
+   <tbody>
 
 
 
@@ -240,6 +237,7 @@ key="shuffle1"
 
 
 
+   </tbody>
 </table>
 
 
@@ -268,7 +266,7 @@ className="custom-pixel-card"
   firstContent={
     <img
       src={controller}
-      alt="default pixel transition content, a cat!"
+      alt="The FlySky transmitter"
       style={{ width: "100%", height: "100%", objectFit: "cover" }}
     />
   }
@@ -301,7 +299,7 @@ className="custom-pixel-card"
       </div>
       <div className='gridItem gridItemText'>// BODY - F450 Quadcopter Frame</div>
       <div className='gridItem gridItemText'>// MOTOR - A2212 1000 KV BLDC Brushless DC Motor</div>
-      <div className='gridItem gridItemText'>// ESC - SimonK 30A BLDC ESC </div>
+      <div className='gridItem gridItemText'>// ESC - SimonK 30A BLDC ESC </div>
       <div className='gridItem gridItemText'>// PROPELLERS - Quadcopter propellers 10 x 4.5 (2 Pair)</div>
       <div className='gridItem gridItemText'>// FLIGHT CONTROLLER - KK2.1 Flight Control Board</div>
       <div className='gridItem gridItemText'>// BATTERY - 11.1V 2200mAh 3S 60C LiPo Battery</div>

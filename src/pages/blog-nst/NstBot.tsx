@@ -1,8 +1,8 @@
 import "./nstBlog.css"
 
-import qotd from '../../assets/qotd.png'
-import imageone from '../../assets/imageone.png'
-import imagetwo from '../../assets/imagetwo.png'
+import qotd from '../../assets/qotd.webp'
+import imageone from '../../assets/imageone.webp'
+import imagetwo from '../../assets/imagetwo.webp'
 
 const NstBot = () => {
   return (

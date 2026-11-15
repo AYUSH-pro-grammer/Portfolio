@@ -13,7 +13,7 @@ import python from "../../assets/teachy/python.svg";
 import react from "../../assets/teachy/react.svg";
 import sql from "../../assets/teachy/sql.svg";
 import vs from "../../assets/teachy/vs.svg";
-import fastapi from "../../assets/teachy/fastapi.png";
+import fastapi from "../../assets/teachy/fastapi.webp";
 
 import Contact from "../../components/contact/Contact";
 import Foot from "../../components/fotter/Foot";

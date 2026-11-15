@@ -1,11 +1,11 @@
 
 import './navbar.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import Lottie, { type LottieRefCurrentProps } from 'lottie-react';
 
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 
 import nav from '../../assets/json/nav.json'
@@ -19,15 +19,13 @@ import { useState } from 'react'
 
 
 
-interface NavbarProps {
-  no: number;
-}
 
 
 
 
 
-const Navbar = ({no}: NavbarProps) => {
+
+const Navbar = () => {
       const lottieRef = useRef<LottieRefCurrentProps | null>(null);
       const lottieRef1 = useRef<LottieRefCurrentProps | null>(null);
       const lottieRef2 = useRef<LottieRefCurrentProps | null>(null);
@@ -35,15 +33,14 @@ const Navbar = ({no}: NavbarProps) => {
       const userIconRef = useRef<LottieRefCurrentProps | null>(null);
  
 
-    const [dots, changeDots] = useState([false, false,false,false,false])
-
-
-      useEffect(() => {
-        const newDots = [...dots]
-        newDots[no] = true
-        changeDots(newDots)
-
-  }, []); 
+    const { pathname } = useLocation()
+    const dots = [
+        pathname === '/',
+        pathname.startsWith('/about'),
+        pathname.toLowerCase().startsWith('/project'),
+        pathname.startsWith('/stack'),
+        pathname.startsWith('/contact'),
+    ] 
 
 
 
@@ -55,13 +52,7 @@ const Navbar = ({no}: NavbarProps) => {
         
     }
 
-    function toggleDots(updateDot: number){
-        
-        const newDotList = [false, false,false,false,false]
-        newDotList[updateDot] = true
-        changeDots(newDotList)
-
-    }
+    
 
 
 
@@ -116,7 +107,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 
 <Link to="/" className='NoListStyle'>
-            <div className='navbar-links-element' onClick={()=>{toggleDots(0)}}>
+            <div className='navbar-links-element' onClick={()=>changeSidebar(false)}>
                 <h4 className='navbar-icons-title'>Home</h4>
                 {dots[0] ? <div className='navbar-dot'></div>: <div></div> }
 
@@ -126,7 +117,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 <Link to="/about" className='NoListStyle'>
 
-            <div className='navbar-links-element'onClick={()=>{toggleDots(1)}}>
+            <div className='navbar-links-element'onClick={()=>changeSidebar(false)}>
                 <h4 className='navbar-icons-title'>About</h4>
                 {dots[1] ? <div className='navbar-dot'></div>: <div></div> }
 
@@ -139,7 +130,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 <Link to="/projects" className='NoListStyle'>
 
-  <div className='navbar-links-element' onClick={()=>{toggleDots(2)}} >
+  <div className='navbar-links-element' onClick={()=>changeSidebar(false)} >
                 <h4 className='navbar-icons-title'>Projects</h4>
                 {dots[2] ? <div className='navbar-dot'></div>: <div></div> }
 
@@ -150,7 +141,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 <Link to="/stack" className='NoListStyle'>
 
-            <div className='navbar-links-element' onClick={()=>{toggleDots(3)}} >
+            <div className='navbar-links-element' onClick={()=>changeSidebar(false)} >
                 <h4 className='navbar-icons-title'>Stack</h4>
                 {dots[3] ? <div className='navbar-dot'></div>: <div></div> }
             </div>
@@ -162,7 +153,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 
 
-            <div className='navbar-links-element' onClick={()=>{toggleDots(4)}} >
+            <div className='navbar-links-element' onClick={()=>changeSidebar(false)} >
                 <h4 className='navbar-icons-title'>Contact</h4>
                 {dots[4] ? <div className='navbar-dot'></div>: <div></div> }
             </div>
@@ -181,7 +172,7 @@ const Navbar = ({no}: NavbarProps) => {
         <div className='navbar-links'>
 
 
-<a href="mailto:ayushpro1428@gmail.com" target="_blank" className='a'>
+<a href="mailto:ayushpro1428@gmail.com" target="_blank" rel="noopener noreferrer" className='a'>
     
 
                 <div className='navbar-links-element OneElement' >
@@ -202,7 +193,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 </a>
 
-<a href="https://github.com/AYUSH-pro-grammer" target="_blank" className='a'>
+<a href="https://github.com/AYUSH-pro-grammer" target="_blank" rel="noopener noreferrer" className='a'>
 
 
             <div className='navbar-links-element TwoElement' >
@@ -226,7 +217,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 
 
-<a href="https://linkedin.com/in/ayushpro1428" target="_blank" className='a'>
+<a href="https://linkedin.com/in/ayushpro1428" target="_blank" rel="noopener noreferrer" className='a'>
 
 
   <div className='navbar-links-element ThreeElement'  >
@@ -294,7 +285,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 <Link to="/" className='NoListStyle'>
 
-            <div className='navbar-links-element' onClick={()=>{toggleDots(0)}}>
+            <div className='navbar-links-element' onClick={()=>changeSidebar(false)}>
                 <h4 className='navbar-icons-title'>Home</h4>
                 {dots[0] ? <div className='navbar-dot'></div>: <div></div> }
 
@@ -305,7 +296,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 <Link to="/about" className='NoListStyle'>
 
-                     <div className='navbar-links-element'onClick={()=>{toggleDots(1)}}>
+                     <div className='navbar-links-element'onClick={()=>changeSidebar(false)}>
                 <h4 className='navbar-icons-title'>About</h4>
                 {dots[1] ? <div className='navbar-dot'></div>: <div></div> }
             </div>
@@ -317,7 +308,7 @@ const Navbar = ({no}: NavbarProps) => {
 
 <Link to="/projects" className='NoListStyle'>
 
-            <div className='navbar-links-element' onClick={()=>{toggleDots(2)}} >
+            <div className='navbar-links-element' onClick={()=>changeSidebar(false)} >
                 <h4 className='navbar-icons-title'>Projects</h4>
                 {dots[2] ? <div className='navbar-dot'></div>: <div></div> }
 
@@ -330,7 +321,7 @@ const Navbar = ({no}: NavbarProps) => {
 <Link to="/stack" className='NoListStyle'>
 
 
-            <div className='navbar-links-element' onClick={()=>{toggleDots(3)}} >
+            <div className='navbar-links-element' onClick={()=>changeSidebar(false)} >
                 <h4 className='navbar-icons-title'>Stack</h4>
                 {dots[3] ? <div className='navbar-dot'></div>: <div></div> }
             </div>
@@ -341,7 +332,7 @@ const Navbar = ({no}: NavbarProps) => {
 <Link to="/contact" className='NoListStyle'>
 
 
-            <div className='navbar-links-element' onClick={()=>{toggleDots(4)}} >
+            <div className='navbar-links-element' onClick={()=>changeSidebar(false)} >
                 <h4 className='navbar-icons-title'>Contact</h4>
                 {dots[4] ? <div className='navbar-dot'></div>: <div></div> }
             </div>

@@ -1,6 +1,6 @@
 import './projectB.css'
 
-import imgB from '../../../src/assets/projectImage/imgB.png'
+import imgB from '../../../src/assets/projectImage/imgB.webp'
 
 import Stack from '../../components/stack/Stack'
 import Foot from '../../components/fotter/Foot'

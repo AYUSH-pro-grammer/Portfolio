@@ -17,7 +17,7 @@ const Header = () => {
 
         <div className='header-navbar'>
 
-        <h1 className='header-heading'>
+        <div className='header-heading'>
             <h1 className='totleOfanimintion'>Hey,</h1>
             
 
@@ -35,7 +35,7 @@ const Header = () => {
              
             <h1 className='totleOfanimintion'>I'm Ayush!</h1>
 
-        </h1>
+        </div>
 
 
                             

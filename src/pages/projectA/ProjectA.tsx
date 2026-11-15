@@ -1,6 +1,6 @@
 import './projectA.css'
-import imgA from '../../../src/assets/projectImage/imgA.png'
-import googleAds from '../../../src/assets/googleAds.png' 
+import imgA from '../../../src/assets/projectImage/imgA.webp'
+import googleAds from '../../../src/assets/googleAds.webp' 
 
 import Stack from '../../components/stack/Stack'
 import Foot from '../../components/fotter/Foot'
