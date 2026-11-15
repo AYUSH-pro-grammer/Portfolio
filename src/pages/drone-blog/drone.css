@@ -349,3 +349,28 @@ display:block;
 
 ;
 }
+/* "Not finished yet" banner */
+.drone-wip{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    margin: 2.5vw 2.5vw 0;
+    padding: 14px 18px;
+    border: 1px solid #8a5a00;
+    background: #fff3d6;
+    color: #4a3200;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.drone-wip-tag{
+    font-family: "Kode Mono", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border: 1px solid currentColor;
+    color: #8a5a00;
+    white-space: nowrap;
+}

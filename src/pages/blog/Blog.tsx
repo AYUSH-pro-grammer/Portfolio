@@ -9,7 +9,6 @@ import {
   type Project,
 } from "../../data/projects";
 import { blogHref, mainSiteHref } from "../../lib/blog";
-import qotd from "../../assets/qotd.webp";
 
 type Entry = {
   key: string;
@@ -18,6 +17,7 @@ type Entry = {
   text: string;
   cover?: string;
   hasGuide: boolean;
+  draft?: boolean;
   label?: string;
   search: string;
 };
@@ -29,22 +29,10 @@ const fromProject = (p: Project): Entry => ({
   text: p.tagline,
   cover: p.cover,
   hasGuide: !!p.hasGuide,
+  draft: !!p.guideDraft,
   label: statusLabels[p.status],
   search: [p.title, p.tagline, p.category, ...(p.tech ?? [])].join(" ").toLowerCase(),
 });
-
-const posts: Entry[] = [
-  {
-    key: "qotd",
-    href: blogHref("how-to-make-qotd-bot"),
-    title: "Automating the Question of the Day bot",
-    text: "Reverse-engineering an API, solving with Gemini and submitting automatically.",
-    cover: qotd,
-    hasGuide: true,
-    label: "Nov 2024",
-    search: "qotd bot api gemini python automation question of the day",
-  },
-];
 
 const sections: { id: string; title: string; entries: Entry[] }[] = [
   {
@@ -57,7 +45,6 @@ const sections: { id: string; title: string; entries: Entry[] }[] = [
     title: "Game Dev",
     entries: pageProjects.filter((p) => p.category === ("game-dev" as Category)).map(fromProject),
   },
-  { id: "posts", title: "Posts", entries: posts },
 ];
 
 export default function Blog() {
@@ -141,6 +128,8 @@ export default function Blog() {
                         <div className="bl-badges">
                           {e.hasGuide ? (
                             <span className="bl-badge bl-badge-guide">● Guide</span>
+                          ) : e.draft ? (
+                            <span className="bl-badge bl-badge-none">◐ Guide in progress</span>
                           ) : (
                             <span className="bl-badge bl-badge-none">○ No guide yet</span>
                           )}

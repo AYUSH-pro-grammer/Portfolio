@@ -17,7 +17,6 @@ import { isBlogHost } from "./lib/blog";
 const Blog = lazy(() => import("./pages/blog/Blog"));
 const ProjectBlog = lazy(() => import("./pages/blog/ProjectBlog"));
 const DronePage = lazy(() => import("./pages/drone-blog/DronePage"));
-const NstBot = lazy(() => import("./pages/blog-nst/NstBot"));
 
 function SiteLayout() {
   return (
@@ -41,7 +40,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Blog />} />
             <Route path="/drone" element={<DronePage />} />
-            <Route path="/how-to-make-qotd-bot" element={<div className="body0body"><NstBot /></div>} />
             <Route path="/:slug" element={<ProjectBlog />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
@@ -66,7 +64,6 @@ function App() {
 
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/drone" element={<DronePage />} />
-          <Route path="/blog/how-to-make-qotd-bot" element={<div className="body0body"><NstBot /></div>} />
           <Route path="/blog/:slug" element={<ProjectBlog />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

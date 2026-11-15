@@ -160,6 +160,11 @@ const data = tableOfContent;
    </ul>
 </nav>
 
+<div className='drone-wip' role="note">
+   <span className='drone-wip-tag'>WORK IN PROGRESS</span>
+   <p>This build guide isn't finished yet. Some sections are still being written, so check back soon.</p>
+</div>
+
 
 <div>
 

@@ -88,7 +88,7 @@ const ProjectP = () => {
                   <h2 className="p-page-title">{project.title}</h2>
 
                   <div className="p-page-links">
-                    {page && <Link to={page}>{project.hasGuide ? "Guide" : "Overview"}</Link>}
+                    {page && <Link to={page}>{project.hasGuide ? "Guide" : project.guideDraft ? "Draft guide" : "Overview"}</Link>}
                     {project.github ? (
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         GitHub

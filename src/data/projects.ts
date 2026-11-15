@@ -38,6 +38,8 @@ export type Project = {
   demo?: string;
   /** Has a full build guide (written from the build journal). */
   hasGuide?: boolean;
+  /** Guide exists but isn't finished yet. */
+  guideDraft?: boolean;
   /** Has its own page on the blog. Software sites link straight to the live site instead. */
   hasPage?: boolean;
   /** An older standalone blog post that replaces the generated page. */
@@ -440,7 +442,7 @@ export const projects: Project[] = [
     status: "completed",
     featured: false,
     hasPage: true,
-    hasGuide: true,
+    guideDraft: true,
     postPath: "drone",
     cover: drone,
     tech: ["F450", "KK2.1", "A2212 motors", "SimonK ESCs"],
