@@ -385,3 +385,44 @@ export const blinkyGuide: Guide = {
     },
   ],
 };
+
+// ───────────────────────── Valorant keycaps ─────────────────────────
+const kc = journalImgs("keycaps");
+
+export const keycapsGuide: Guide = {
+  totalHours: 4.4,
+  intro: [
+    "How I designed four Valorant-style keycaps for W, A, S and D in one sitting: from a model of an MX switch to finished CAD files on GitHub.",
+  ],
+  steps: [
+    {
+      title: "Designing the keycaps and publishing them",
+      date: "25 Jun 2026",
+      hours: 4.4,
+      blocks: [
+        "I started by importing a model of an MX switch into the CAD file. The keycaps sit on that switch, so the cross-shaped stem had to fit it exactly.",
+        kc.one("f01-1", "MX switch model imported into CAD"),
+        "These are the MX Cherry-style switches the keycaps are made for.",
+        kc.one("f01-2", "A single MX switch with its cross-shaped stem"),
+        kc.one("f01-3", "Four MX switches, one for each of W, A, S and D"),
+        "First came a plain keycap with no design. Once that base model fit the switch, the rest was copying it three times and adding the artwork.",
+        kc.one("f01-4", "Plain keycap base model on the switch"),
+        "Next I added a light wood texture and the Valorant logo on top.",
+        kc.one("f01-5", "Keycap with a wood texture and the Valorant logo"),
+        "Then I put a W on the side. The first version looked too dull, so I reworked it until it stood out.",
+        kc.one("f01-6", "W added to the side of the keycap"),
+        kc.one("f01-7", "Updated, bolder W design"),
+        "With one key finished, I made the other three. All four keys were done.",
+        ...kc.many("f01", 8, 11, "The finished W, A, S and D keycaps"),
+        lesson("Get one plain keycap fitting the switch before adding any artwork. After that, every other key is just a copy with a new design on top."),
+        "Last, I set up the GitHub repo with the Fusion 360 file, a STEP export, a bill of materials, images and a readme, so anyone can download the CAD and change the top for any key.",
+        kc.one("f01-12", "GitHub repo with the CAD files, BOM and readme"),
+        kc.one("f01-13", "Readme with photos of the keycaps and switches"),
+      ],
+    },
+  ],
+  next: [
+    "Print the four keycaps.",
+    "The printer can't show fine detail, so add stickers on top for the artwork.",
+  ],
+};

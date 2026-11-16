@@ -904,6 +904,7 @@ export const projects: Project[] = [
     status: "in-progress",
     featured: false,
     hasPage: true,
+    hasGuide: true,
     cover: keycaps,
     github: GH + "keycaps",
     tech: ["CAD", "3D printing"],

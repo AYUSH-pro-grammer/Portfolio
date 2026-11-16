@@ -23,6 +23,7 @@ import {
   laptopStandGuide,
   spotifyDisplayGuide,
   blinkyGuide,
+  keycapsGuide,
 } from "./journalsD";
 
 export const guides: Record<string, Guide> = {
@@ -53,4 +54,5 @@ export const guides: Record<string, Guide> = {
   "laptop-stand": laptopStandGuide,
   "spotify-display": spotifyDisplayGuide,
   "blinky-board": blinkyGuide,
+  keycaps: keycapsGuide,
 };
