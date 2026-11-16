@@ -89,7 +89,7 @@ export default function ProjectBlog() {
   const photoCount = guide
     ? guide.steps.reduce((n, s) => n + s.blocks.filter((b) => typeof b === "object" && "img" in b).length, 0)
     : 0;
-  const hours = guide ? guide.totalHours ?? guide.steps.reduce((n, s) => n + s.hours, 0) : 0;
+  const hours = guide ? guide.totalHours ?? guide.steps.reduce((n, s) => n + (s.hours ?? 0), 0) : 0;
 
   const index = browsable.findIndex((p) => p.slug === project.slug);
   const prev = index > 0 ? browsable[index - 1] : undefined;
@@ -185,7 +185,7 @@ export default function ProjectBlog() {
           <h2 className="pp-h2" id="guide-title">
             Guide
             {guide ? (
-              <span className="bl-badge bl-badge-guide">● From my build journal</span>
+              <span className="bl-badge bl-badge-guide">● {guide.source ?? "From my build journal"}</span>
             ) : (
               <span className="bl-badge bl-badge-none">○ Not written yet</span>
             )}
@@ -204,10 +204,12 @@ export default function ProjectBlog() {
                   <b>{guide.steps.length}</b>
                   <span>steps</span>
                 </div>
-                <div className="pp-stat">
-                  <b>{hours}h</b>
-                  <span>logged</span>
-                </div>
+                {hours > 0 && (
+                  <div className="pp-stat">
+                    <b>{hours}h</b>
+                    <span>logged</span>
+                  </div>
+                )}
                 <div className="pp-stat">
                   <b>{photoCount}</b>
                   <span>screenshots</span>
@@ -235,9 +237,11 @@ export default function ProjectBlog() {
                       <span className="pp-step-num">STEP {pad(n + 1)}</span>
                       <h3 className="pp-step-title">{s.title}</h3>
                     </div>
-                    <span className="pp-step-meta">
-                      {s.date} · {s.hours}h
-                    </span>
+                    {(s.date || s.hours) && (
+                      <span className="pp-step-meta">
+                        {[s.date, s.hours ? `${s.hours}h` : null].filter(Boolean).join(" · ")}
+                      </span>
+                    )}
                   </header>
                   <div className="pp-step-body">
                     {s.blocks.map((b, k) => (

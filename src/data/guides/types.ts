@@ -5,12 +5,14 @@ export type GuideBlock =
 
 export type GuideStep = {
   title: string;
-  date: string;
-  hours: number;
+  date?: string;
+  hours?: number;
   blocks: GuideBlock[];
 };
 
 export type Guide = {
+  /** Shown next to the Guide heading, e.g. "From my build journal". */
+  source?: string;
   intro: string[];
   totalHours?: number;
   steps: GuideStep[];
